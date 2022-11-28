@@ -20,14 +20,12 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 @Repository
 @RequiredArgsConstructor
 public class StatsCustomRepositoryImpl implements StatsCustomRepository {
 
     @PersistenceContext
     private final EntityManager em;
-
 
 
     @Override
