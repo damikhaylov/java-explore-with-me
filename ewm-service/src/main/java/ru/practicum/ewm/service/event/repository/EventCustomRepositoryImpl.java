@@ -99,8 +99,7 @@ public class EventCustomRepositoryImpl implements EventCustomRepository {
         BooleanBuilder filter = new BooleanBuilder();
         filter.and(event.id.in(ids));
 
-        JPQLQuery<Tuple> query = getQueryForFilteredEventsWithRequestsCount
-                (filter, false, false);
+        JPQLQuery<Tuple> query = getQueryForFilteredEventsWithRequestsCount(filter, false, false);
         List<Tuple> tupleList = query.fetch();
 
         return tupleList.stream().map(x -> new EventWithRequestsCount(x.get(event), x.get(count)))
@@ -114,8 +113,7 @@ public class EventCustomRepositoryImpl implements EventCustomRepository {
         BooleanBuilder filter = new BooleanBuilder();
         filter.and(event.id.eq(id));
 
-        JPQLQuery<Tuple> query = getQueryForFilteredEventsWithRequestsCount
-                (filter, false, false);
+        JPQLQuery<Tuple> query = getQueryForFilteredEventsWithRequestsCount(filter, false, false);
         Tuple result = query.fetchOne();
 
         return (result != null)

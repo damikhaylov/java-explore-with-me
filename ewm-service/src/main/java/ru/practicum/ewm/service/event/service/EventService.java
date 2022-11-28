@@ -37,8 +37,8 @@ public abstract class EventService {
                                 operationNameForLogging, eventId)));
     }
 
-    protected EventWithRequestsCount getEventWithRequestsCountOrThrowException
-            (long eventId, String operationNameForLogging) {
+    protected EventWithRequestsCount getEventWithRequestsCountOrThrowException(long eventId,
+                                                                               String operationNameForLogging) {
         return eventRepository.findEventWithRequestsCountById(eventId).orElseThrow(
                 () -> new IdWasNotFoundException(
                         String.format("%s error - event with id=%d was not found",

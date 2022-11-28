@@ -30,7 +30,7 @@ public class CategoryPublicService {
     public CategoryDto getCategory(Long id) {
         String operationNameForLogging = "Getting info about an category id=" + id + " by public";
         Optional<Category> category = categoryRepository.findById(id);
-        if(category.isEmpty()) {
+        if (category.isEmpty()) {
             throw new IdWasNotFoundException(String.format(" error - category with id=%d was not found", id));
         }
         log.info("{} - done", operationNameForLogging);
