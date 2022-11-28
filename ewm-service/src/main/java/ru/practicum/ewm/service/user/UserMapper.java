@@ -1,9 +1,12 @@
 package ru.practicum.ewm.service.user;
 
+import ru.practicum.ewm.service.user.dto.NewUserDto;
+import ru.practicum.ewm.service.user.dto.UserDto;
+
 public class UserMapper {
-    public static User toUser(UserDto userDto) {
+    public static User toUser(NewUserDto userDto) {
         return new User(
-                userDto.getId(),
+                0L,
                 userDto.getName(),
                 userDto.getEmail()
         );

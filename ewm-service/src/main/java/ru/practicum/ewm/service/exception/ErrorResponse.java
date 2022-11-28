@@ -5,6 +5,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 public class ErrorResponse {
@@ -13,11 +14,13 @@ public class ErrorResponse {
     private final HttpStatus status;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private final LocalDateTime timestamp;
+    private final List<String> errors;
 
-    public ErrorResponse(String message, String reason, HttpStatus status) {
+    public ErrorResponse(String message, String reason, HttpStatus status, List<String> errors) {
         this.message = message;
         this.reason = reason;
         this.status = status;
+        this.errors = errors;
         this.timestamp = LocalDateTime.now();
     }
 }

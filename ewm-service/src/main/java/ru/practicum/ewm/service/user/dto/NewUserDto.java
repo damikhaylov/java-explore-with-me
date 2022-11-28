@@ -1,4 +1,4 @@
-package ru.practicum.ewm.service.user;
+package ru.practicum.ewm.service.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,8 +11,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-    private Long id;
+public class NewUserDto {
     @NotBlank
     private String name;
     @NotNull

@@ -3,34 +3,33 @@ package ru.practicum.ewm.service.category.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import ru.practicum.ewm.service.category.CategoryDto;
-import ru.practicum.ewm.service.category.CategoryService;
-import ru.practicum.ewm.service.helper.CreateContext;
-import ru.practicum.ewm.service.helper.UpdateContext;
+import ru.practicum.ewm.service.category.dto.CategoryDto;
+import ru.practicum.ewm.service.category.service.CategoryAdminService;
+import ru.practicum.ewm.service.category.dto.NewCategoryDto;
 
 @RestController
 @RequestMapping(path = "/admin/categories")
 public class CategoryAdminController {
-    private final CategoryService categoryService;
+    private final CategoryAdminService categoryAdminService;
 
     @Autowired
-    public CategoryAdminController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public CategoryAdminController(CategoryAdminService categoryAdminService) {
+        this.categoryAdminService = categoryAdminService;
     }
 
     @PostMapping()
-    public CategoryDto createCategory(@RequestBody @Validated({CreateContext.class}) CategoryDto categoryDto) {
-        return categoryService.createCategory(categoryDto);
+    public CategoryDto createCategory(@RequestBody @Validated NewCategoryDto categoryDto) {
+        return categoryAdminService.createCategory(categoryDto);
     }
 
     @PatchMapping()
-    public CategoryDto updateCategory(@RequestBody @Validated({UpdateContext.class}) CategoryDto categoryDto) {
-        return categoryService.updateCategory(categoryDto);
+    public CategoryDto updateCategory(@RequestBody @Validated CategoryDto categoryDto) {
+        return categoryAdminService.updateCategory(categoryDto);
     }
 
     @DeleteMapping("/{catId}")
     public void deleteCategory(@PathVariable("catId") Long categoryId) {
-        categoryService.deleteCategory(categoryId);
+        categoryAdminService.deleteCategory(categoryId);
     }
 
 }

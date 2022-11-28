@@ -1,10 +1,8 @@
-package ru.practicum.ewm.service.category;
+package ru.practicum.ewm.service.category.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import ru.practicum.ewm.service.helper.CreateContext;
-import ru.practicum.ewm.service.helper.UpdateContext;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -13,8 +11,8 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CategoryDto {
-    @NotNull(groups = {UpdateContext.class})
+    @NotNull
     private Long id;
-    @NotBlank(groups = {CreateContext.class, UpdateContext.class})
+    @NotBlank
     private String name;
 }
