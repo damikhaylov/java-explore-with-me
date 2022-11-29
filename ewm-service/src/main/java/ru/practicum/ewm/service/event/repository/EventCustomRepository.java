@@ -3,6 +3,7 @@ package ru.practicum.ewm.service.event.repository;
 import com.querydsl.core.BooleanBuilder;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Repository;
 import ru.practicum.ewm.service.event.dto.EventWithRequestsCount;
 
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public interface EventCustomRepository {
 
     List<EventWithRequestsCount> findFilteredEventsWithRequestsCountList(BooleanBuilder predicate,

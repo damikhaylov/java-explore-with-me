@@ -22,7 +22,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class CompilationPublicService {
     private final CompilationRepository compilationRepository;
-    protected final EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
     @Autowired
     public CompilationPublicService(CompilationRepository compilationRepository, EventRepository eventRepository) {
@@ -65,7 +65,7 @@ public class CompilationPublicService {
                 .collect(Collectors.toList());
     }
 
-    protected Compilation getCompilationOrThrowException(long id, String operationNameForLogging) {
+    private Compilation getCompilationOrThrowException(long id, String operationNameForLogging) {
         return compilationRepository.findById(id).orElseThrow(
                 () -> new IdWasNotFoundException(
                         String.format("%s error - compilation id=%d was not found", operationNameForLogging, id)));

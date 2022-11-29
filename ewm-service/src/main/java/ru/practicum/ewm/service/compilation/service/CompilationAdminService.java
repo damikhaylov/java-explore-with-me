@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @Transactional(readOnly = true)
 public class CompilationAdminService {
     private final CompilationRepository compilationRepository;
-    protected final EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
     @Autowired
     public CompilationAdminService(CompilationRepository compilationRepository, EventRepository eventRepository) {
@@ -87,13 +87,13 @@ public class CompilationAdminService {
         log.info("{} - a compilation id={} has been pinned", operationNameForLogging, id);
     }
 
-    protected Compilation getCompilationOrThrowException(long id, String operationNameForLogging) {
+    private Compilation getCompilationOrThrowException(long id, String operationNameForLogging) {
         return compilationRepository.findById(id).orElseThrow(
                 () -> new IdWasNotFoundException(
                         String.format("%s error - compilation id=%d was not found", operationNameForLogging, id)));
     }
 
-    protected Event getEventOrThrowException(long id, String operationNameForLogging) {
+    private Event getEventOrThrowException(long id, String operationNameForLogging) {
         return eventRepository.findById(id).orElseThrow(
                 () -> new IdWasNotFoundException(
                         String.format("%s error - event id=%d was not found", operationNameForLogging, id)));

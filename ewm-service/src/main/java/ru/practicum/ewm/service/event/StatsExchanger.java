@@ -27,7 +27,7 @@ public class StatsExchanger {
     private final String eventEndpoint = "/events";
     private final boolean uniqueIpInViewStats = false;
     private final LocalDateTime minViewTimestamp =
-            LocalDateTime.of(1800, 1, 1, 0, 0);
+            LocalDateTime.of(2022, 1, 1, 0, 0);
     private final LocalDateTime maxViewTimestamp =
             LocalDateTime.of(2200, 1, 1, 0, 0);
 

@@ -1,6 +1,7 @@
 package ru.practicum.ewm.service.compilation;
 
 import ru.practicum.ewm.service.compilation.dto.CompilationDto;
+import ru.practicum.ewm.service.compilation.dto.CompilationEventShortDto;
 import ru.practicum.ewm.service.compilation.dto.NewCompilationDto;
 import ru.practicum.ewm.service.event.Event;
 import ru.practicum.ewm.service.event.dto.EventWithRequestsCount;
@@ -54,17 +55,17 @@ public class CompilationMapper {
         );
     }
 
-    public static CompilationDto.EventShortDto toEventShortDto(Event event, long requestsCount) {
-        return new CompilationDto.EventShortDto(
+    public static CompilationEventShortDto toEventShortDto(Event event, long requestsCount) {
+        return new CompilationEventShortDto(
                 event.getId(),
                 event.getTitle(),
                 event.getAnnotation(),
-                new CompilationDto.EventShortDto.CategoryDto(
+                new CompilationEventShortDto.CategoryDto(
                         event.getCategory().getId(),
                         event.getCategory().getName()),
                 event.getEventDate(),
                 event.getPaid(),
-                new CompilationDto.EventShortDto.UserShortDto(
+                new CompilationEventShortDto.UserShortDto(
                         event.getInitiator().getId(),
                         event.getInitiator().getName()),
                 requestsCount,
@@ -72,7 +73,7 @@ public class CompilationMapper {
         );
     }
 
-    public static CompilationDto.EventShortDto toEventShortDto(EventWithRequestsCount eventWithRequestsCount) {
+    public static CompilationEventShortDto toEventShortDto(EventWithRequestsCount eventWithRequestsCount) {
         Event event = eventWithRequestsCount.getEvent();
         long requestsCount = eventWithRequestsCount.getRequestCount();
         return toEventShortDto(event, requestsCount);
