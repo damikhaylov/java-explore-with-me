@@ -15,6 +15,7 @@ import ru.practicum.ewm.service.location.Location;
 import ru.practicum.ewm.service.location.LocationMapper;
 import ru.practicum.ewm.service.location.dto.NewLocationDto;
 import ru.practicum.ewm.service.location.dto.LocationDto;
+import ru.practicum.ewm.service.location.dto.UpdateLocationDto;
 import ru.practicum.ewm.service.location.repository.LocationRepository;
 
 import java.time.LocalDateTime;
@@ -45,7 +46,7 @@ public class LocationAdminService {
     }
 
     @Transactional
-    public LocationDto updateLocation(LocationDto locationDto) {
+    public LocationDto updateLocation(UpdateLocationDto locationDto) {
         String operationNameForLogging = "Updating a location id=" + locationDto.getId();
 
         Location location =  locationRepository.findById(locationDto.getId()).orElseThrow(

@@ -27,7 +27,7 @@ public class LocationPublicController {
     }
 
     @GetMapping("/{locationId}")
-    public LocationDto getCategory(@PathVariable Long locationId) {
+    public LocationDto getLocation(@PathVariable Long locationId) {
         return locationPublicService.getLocation(locationId);
     }
 

@@ -4,22 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;
-
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class LocationDto {
-    @NotNull
-    private Long id;
-    @Size(min = 3, max = 255)
+    private long id;
     private String name;
-    @Min(-90)
-    @Max(90)
-    private Float latitude;
-    @Min(-180)
-    @Max(180)
-    private Float longitude;
-    @PositiveOrZero
-    private Float radius;
+    private float latitude;
+    private float longitude;
+    private float radius;
 }

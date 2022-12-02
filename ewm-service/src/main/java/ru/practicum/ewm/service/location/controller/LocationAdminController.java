@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ru.practicum.ewm.service.event.EventState;
 import ru.practicum.ewm.service.event.dto.EventFullDto;
+import ru.practicum.ewm.service.location.dto.UpdateLocationDto;
 import ru.practicum.ewm.service.location.service.LocationAdminService;
 import ru.practicum.ewm.service.pagination.CustomPageRequest;
 import ru.practicum.ewm.service.location.dto.NewLocationDto;
@@ -34,7 +35,7 @@ public class LocationAdminController {
     }
 
     @PatchMapping
-    public LocationDto updateLocation(@RequestBody @Validated LocationDto locationDto) {
+    public LocationDto updateLocation(@RequestBody @Validated UpdateLocationDto locationDto) {
         return locationAdminService.updateLocation(locationDto);
     }
 
