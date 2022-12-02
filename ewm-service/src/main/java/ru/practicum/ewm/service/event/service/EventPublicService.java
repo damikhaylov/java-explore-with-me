@@ -56,10 +56,10 @@ public class EventPublicService extends EventService {
                 event.description.containsIgnoreCase(x)));
         categories.ifPresent(x -> filter.and(event.category.id.in(Arrays.asList(x))));
         paid.ifPresent(x -> filter.and(event.paid.eq(x)));
-        rangeStart.ifPresent(x -> filter.and(event.eventDate.goe(x)));
-        rangeEnd.ifPresent(x -> filter.and(event.eventDate.loe(x)));
         if (rangeStart.isEmpty() || rangeEnd.isEmpty()) {
             filter.and(event.eventDate.after(LocalDateTime.now()));
+        } else {
+            filter.and(event.eventDate.between(rangeStart.get(), rangeEnd.get()));
         }
 
         List<EventShortDto> eventShortDtoList;

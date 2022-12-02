@@ -7,8 +7,6 @@ import lombok.Setter;
 import ru.practicum.ewm.service.event.Event;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,8 +20,6 @@ public class Compilation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank
-    @Size(min = 2, max = 120)
     @Column(nullable = false)
     private String title;
     private boolean pinned;
