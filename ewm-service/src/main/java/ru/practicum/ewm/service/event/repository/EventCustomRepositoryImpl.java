@@ -53,7 +53,7 @@ public class EventCustomRepositoryImpl implements EventCustomRepository {
                 .groupBy(event.id);
 
         if (onlyAvailable) {
-            query.having(event.participantLimit.gt(request.id.count()));
+            query.having(event.participantLimit.gt(request.id.count()).or(event.participantLimit.eq(0L)));
         }
 
         if (sortedByDate) {
