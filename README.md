@@ -19,7 +19,7 @@ docker-контейнерах.
 
 Каждый сервис использует собственную базу данных.
 
-### Спецификация API в Swagger
+## Спецификация API в Swagger
 * спецификация основного сервиса:
   [ewm-main-service-spec.json](https://raw.githubusercontent.com/yandex-praktikum/java-explore-with-me/main/ewm-main-service-spec.json)
 * спецификация сервиса статистики:
